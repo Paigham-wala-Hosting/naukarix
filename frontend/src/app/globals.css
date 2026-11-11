@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local Patched Poppins Font (Regular, Medium, SemiBold, Bold) with expanded Devanagari Ascent metrics */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 125%;
+  descent-override: 35%;
+  line-gap-override: 20%;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 125%;
+  descent-override: 35%;
+  line-gap-override: 20%;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 125%;
+  descent-override: 35%;
+  line-gap-override: 20%;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-bold.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 125%;
+  descent-override: 35%;
+  line-gap-override: 20%;
+}
+
+@layer base {
+  :root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+  }
+
+  html, body, button, input, select, textarea {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-bold, .font-black, .font-extrabold {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: normal;
+    overflow: visible;
+  }
+}
+
+/* Modern standard scrollbars (Baseline Widely Available) */
+html, body, * {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Fallback for legacy browsers */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+/* Core Web Vitals: INP & Rendering Optimization for long job feeds */
+.job-feed-item {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 260px;
+}
+
+/* WCAG 2.4.7 Focus Visible standard */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Modern Dialog overscroll containment */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+@media print {
+  header, footer, nav, button {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  #biodata-print-sheet {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+}
